@@ -1,0 +1,70 @@
+Locales = Locales or {}
+
+Locales.en = {
+    cmd_alcohol = 'Give a breathalyzer test',
+    cmd_drug = 'Give a drug test',
+    cmd_arg_id = 'Player ID (optional)',
+    keybind_close = 'Close sobriety test result',
+
+    title_alcohol = 'BREATH ALCOHOL TEST',
+    title_drug = 'DRUG SCREENING',
+    above_limit = 'ABOVE LEGAL LIMIT',
+    below_limit = 'BELOW LIMIT',
+    negative = 'NEGATIVE',
+    positive = 'POSITIVE',
+    label_subject = 'Subject',
+    label_officer = 'Officer',
+    label_date = 'Date',
+    close_hint = 'Press %s to close',
+    unit_permille = '‰',
+    unit_bac = '% BAC',
+
+    drug_cannabis = 'Cannabis',
+    drug_cocaine = 'Cocaine',
+    drug_meth = 'Methamphetamine',
+    drug_opioids = 'Opioids',
+    drug_ecstasy = 'Ecstasy',
+
+    consent_title = 'Sobriety Test',
+    consent_alcohol = 'A police officer wants to give you a breathalyzer test. Do you accept? (%d s)',
+    consent_drug = 'A police officer wants to give you a drug test. Do you accept? (%d s)',
+    accept = 'Accept',
+    decline = 'Decline',
+    waiting_consent = 'Waiting for the person to respond...',
+
+    progress_alcohol = 'Taking breath sample...',
+    progress_drug = 'Running saliva swab...',
+    auto_me_alcohol = 'holds out a breathalyzer',
+    auto_me_drug = 'takes out a saliva drug test kit',
+
+    test_refused = 'The test was refused.',
+    test_refused_target = 'You refused the test.',
+    test_cancelled = 'The test was cancelled.',
+    tested_alcohol_target = 'You were given a breathalyzer test.',
+    tested_drug_target = 'You were given a drug test.',
+
+    no_permission = 'You are not authorized to perform this test.',
+    no_player_nearby = 'No player nearby.',
+    invalid_target = 'Invalid player.',
+    too_far = 'The person is too far away.',
+    cooldown = 'Please wait %d seconds before another test.',
+    self_test = 'You cannot test yourself.',
+    self_test_notice = 'No player nearby, testing yourself.',
+    target_busy = 'This person is already being tested.',
+    officer_busy = 'You are already performing a test.',
+    target_unavailable = 'This person cannot be tested right now.',
+
+    admin_invalid = 'Invalid arguments.',
+    admin_set = 'Alcohol level of %s set to %.2f',
+    admin_drug = 'Added %s to %s',
+    admin_reset = 'Sobriety values reset for %s',
+    admin_category = 'Unknown drug category: %s',
+
+    log_title_alcohol = 'Breathalyzer Test',
+    log_title_drug = 'Drug Test',
+    log_title_refused = 'Test Refused',
+    log_officer = 'Officer',
+    log_subject = 'Subject',
+    log_result = 'Result',
+    log_type = 'Type'
+}

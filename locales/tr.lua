@@ -1,0 +1,70 @@
+Locales = Locales or {}
+
+Locales.tr = {
+    cmd_alcohol = 'Alkol testi yap',
+    cmd_drug = 'Uyuşturucu testi yap',
+    cmd_arg_id = 'Oyuncu ID (isteğe bağlı)',
+    keybind_close = 'Test sonucunu kapat',
+
+    title_alcohol = 'ALKOL ÖLÇÜM TESTİ',
+    title_drug = 'UYUŞTURUCU TARAMASI',
+    above_limit = 'YASAL SINIRIN ÜSTÜNDE',
+    below_limit = 'YASAL SINIRIN ALTINDA',
+    negative = 'NEGATİF',
+    positive = 'POZİTİF',
+    label_subject = 'Kişi',
+    label_officer = 'Memur',
+    label_date = 'Tarih',
+    close_hint = 'Kapatmak için %s',
+    unit_permille = '‰',
+    unit_bac = '% BAC',
+
+    drug_cannabis = 'Esrar',
+    drug_cocaine = 'Kokain',
+    drug_meth = 'Metamfetamin',
+    drug_opioids = 'Opioid',
+    drug_ecstasy = 'Ekstazi',
+
+    consent_title = 'Ayıklık Testi',
+    consent_alcohol = 'Polis memuru sizi alkol testine tabi tutmak istiyor. Kabul ediyor musunuz? (%d sn)',
+    consent_drug = 'Polis memuru sizi uyuşturucu testine tabi tutmak istiyor. Kabul ediyor musunuz? (%d sn)',
+    accept = 'Kabul et',
+    decline = 'Reddet',
+    waiting_consent = 'Kişinin yanıtı bekleniyor...',
+
+    progress_alcohol = 'Nefes örneği alınıyor...',
+    progress_drug = 'Tükürük testi yapılıyor...',
+    auto_me_alcohol = 'alkol ölçüm cihazını uzatır',
+    auto_me_drug = 'uyuşturucu test kitini çıkarır',
+
+    test_refused = 'Test reddedildi.',
+    test_refused_target = 'Testi reddettiniz.',
+    test_cancelled = 'Test iptal edildi.',
+    tested_alcohol_target = 'Size alkol testi yapıldı.',
+    tested_drug_target = 'Size uyuşturucu testi yapıldı.',
+
+    no_permission = 'Bu testi yapmaya yetkiniz yok.',
+    no_player_nearby = 'Yakında oyuncu yok.',
+    invalid_target = 'Geçersiz oyuncu.',
+    too_far = 'Kişi çok uzakta.',
+    cooldown = 'Yeni bir test için %d saniye bekleyin.',
+    self_test = 'Kendinize test yapamazsınız.',
+    self_test_notice = 'Yakında oyuncu yok, kendinizi test ediyorsunuz.',
+    target_busy = 'Bu kişiye zaten test yapılıyor.',
+    officer_busy = 'Zaten bir test yapıyorsunuz.',
+    target_unavailable = 'Bu kişiye şu anda test yapılamaz.',
+
+    admin_invalid = 'Geçersiz parametre.',
+    admin_set = '%s adlı oyuncunun alkol seviyesi %.2f olarak ayarlandı',
+    admin_drug = '%s, %s adlı oyuncuya eklendi',
+    admin_reset = '%s adlı oyuncunun değerleri sıfırlandı',
+    admin_category = 'Bilinmeyen uyuşturucu kategorisi: %s',
+
+    log_title_alcohol = 'Alkol Testi',
+    log_title_drug = 'Uyuşturucu Testi',
+    log_title_refused = 'Test Reddedildi',
+    log_officer = 'Memur',
+    log_subject = 'Kişi',
+    log_result = 'Sonuç',
+    log_type = 'Tür'
+}

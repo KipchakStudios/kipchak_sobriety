@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: transparent;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    user-select: none;
+}
+
+.card {
+    position: absolute;
+    width: 300px;
+    background: linear-gradient(180deg, #161b22 0%, #0d1117 100%);
+    border: 1px solid #2b3440;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    color: #d6dde6;
+    padding: 12px;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.card.hidden {
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+}
+
+.card.top-right { top: 24px; right: 24px; }
+.card.top-left { top: 24px; left: 24px; }
+.card.bottom-right { bottom: 24px; right: 24px; }
+.card.bottom-left { bottom: 24px; left: 24px; }
+.card.center-right { top: 50%; right: 24px; margin-top: -120px; }
+.card.center-left { top: 50%; left: 24px; margin-top: -120px; }
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.led {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3fb950;
+    box-shadow: 0 0 6px #3fb950;
+}
+
+.title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #8b98a8;
+}
+
+.screen {
+    background: #05080c;
+    border: 1px solid #1f2a36;
+    border-radius: 8px;
+    padding: 12px;
+    font-family: Consolas, 'Lucida Console', 'Courier New', monospace;
+}
+
+.reading {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 6px;
+}
+
+.value {
+    font-size: 40px;
+    font-weight: 700;
+    color: #e6edf3;
+    letter-spacing: 1px;
+}
+
+.unit {
+    font-size: 16px;
+    color: #8b98a8;
+}
+
+.drugs .drug-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 4px 0;
+    border-bottom: 1px dashed #1f2a36;
+}
+
+.drugs .drug-row:last-child {
+    border-bottom: none;
+}
+
+.drug-row .pos { color: #f85149; font-weight: 700; }
+.drug-row .neg { color: #3fb950; }
+
+.status {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.status.danger { color: #ffd7d5; background: rgba(248, 81, 73, 0.18); border: 1px solid rgba(248, 81, 73, 0.5); }
+.status.ok { color: #c8f7d0; background: rgba(63, 185, 80, 0.15); border: 1px solid rgba(63, 185, 80, 0.45); }
+.status.neutral { color: #c9d1d9; background: rgba(139, 152, 168, 0.12); border: 1px solid rgba(139, 152, 168, 0.35); }
+
+.card.danger .value { color: #ff7b72; }
+.card.ok .value { color: #56d364; }
+.card.danger .led { background: #f85149; box-shadow: 0 0 6px #f85149; }
+
+.meta {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.meta .row {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 0;
+}
+
+.meta .key { color: #6e7b8b; }
+.meta .val { color: #d6dde6; text-align: right; max-width: 190px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.footer {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    color: #4f5b69;
+}
+
+.brand {
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
