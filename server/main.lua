@@ -83,6 +83,9 @@ local function cancel(session, reason)
     end
     if GetPlayerName(session.target) then
         TriggerClientEvent('kipchak_sobriety:consentClose', session.target)
+        if session.target ~= session.officer then
+            TriggerClientEvent('kipchak_sobriety:targetStop', session.target)
+        end
     end
     DebugPrint(('test %s cancelled (%s)'):format(session.token, reason or 'test_cancelled'))
     finish(session)
@@ -226,6 +229,10 @@ local function runTest(session)
         local officerPed = GetPlayerPed(session.officer)
         local startCoords = GetEntityCoords(officerPed)
         TriggerClientEvent('kipchak_sobriety:progress', session.officer, session.token, session.kind, Config.Animation.Duration)
+        local targetAnim = Config.Animation.Target
+        if session.target ~= session.officer and type(targetAnim) == 'table' and targetAnim.Enabled then
+            TriggerClientEvent('kipchak_sobriety:targetAnim', session.target, session.kind, Config.Animation.Duration)
+        end
         local ok, reason = waitFor(session, Config.Animation.Duration, function()
             if #(GetEntityCoords(GetPlayerPed(session.officer)) - startCoords) > Config.Animation.MaxMove then
                 return false, 'test_cancelled'
