@@ -159,7 +159,7 @@ There is no client event that can raise a level or create a result.
 | `Config.Cooldown` | Seconds between tests per officer |
 | `Config.ShowResultToTarget` | Show the card to the subject too, otherwise only a notification |
 | `Config.Consent` | `Enabled`, `Timeout` (seconds) |
-| `Config.Animation` | `Enabled` (progress bar), `Emote` (play the animation and prop, default `false`), `Duration` (ms), `MaxMove` (meters before cancel), `Dict`, `Clip`, `Prop` |
+| `Config.Animation` | `Enabled` (main switch: progress bar with animation, `false` gives the result instantly), `Duration` (ms), `MaxMove` (meters before cancel), `Alcohol` / `Drug` (officer animation per test: `Dict`, `Clip`, `Flag`, optional `Prop` = `{ model, bone, pos, rot }`; set the entry to `false` to keep the progress bar without animation), `Target` (`Enabled`, default `false`, plus `Alcohol` / `Drug` animations for the tested person). No animation is played inside a vehicle, and cancelling removes the animation and prop |
 | `Config.Result` | `Position` (`top-right`, `top-left`, `bottom-right`, `bottom-left`, `center-right`, `center-left`), `Duration` (ms, 0 = stay), `CloseKey`, `Branding` |
 | `Config.AutoMe` | `Enabled`, `Duration` (ms), `Range` |
 | `Config.DrunkEffect` | `Enabled`, `Levels` (min level, walk style, camera shake, screen effect strength) |
@@ -172,6 +172,10 @@ There is no client event that can raise a level or create a result.
 | `Config.Drugs` | `Categories` (name + detection minutes), `Items`, `Prefixes` |
 
 Framework specific code (player data, job, notifications, death state) is in `bridge/framework/`, inventory specific code in `bridge/inventory/`. Adapt these files if you use a custom setup.
+
+## Changelog
+
+- 1.0.1 – The test animation now plays whenever `Config.Animation.Enabled` is `true` (the `Emote` switch is gone). Separate officer animations for the breathalyzer and the drug test, optional animation for the tested person (`Config.Animation.Target`). `Config.AllowSelfTest` ships as `false`.
 
 ## Support
 

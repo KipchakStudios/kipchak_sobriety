@@ -5,7 +5,7 @@ lua54 'yes'
 name 'kipchak_sobriety'
 author 'Kipchak Studios'
 description 'Kipchak Sobriety - Breathalyzer and drug test for police'
-version '1.0.0'
+version '1.0.1'
 
 ui_page 'html/index.html'
 

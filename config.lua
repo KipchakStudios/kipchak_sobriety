@@ -26,18 +26,35 @@ Config.Consent = {
     Timeout = 15
 }
 
+-- Enabled is the main switch: true = progress bar with animation, false = instant result.
+-- Alcohol / Drug: officer animation per test. Set the entry to false to keep the progress bar without animation.
+-- Prop is optional: false, or { model, bone, pos, rot }. No animation is played inside a vehicle.
+-- Target: optional short animation for the tested person (default off).
 Config.Animation = {
     Enabled = true,
-    Emote = false,
     Duration = 5000,
     MaxMove = 1.0,
-    Dict = 'cellphone@',
-    Clip = 'cellphone_text_read_base',
-    Prop = {
-        model = 'prop_cs_hand_radio',
-        bone = 28422,
-        pos = vec3(0.0, 0.0, 0.0),
-        rot = vec3(0.0, 0.0, 0.0)
+    Alcohol = {
+        Dict = 'cellphone@',
+        Clip = 'cellphone_text_read_base',
+        Flag = 49,
+        Prop = {
+            model = 'prop_npc_phone_02',
+            bone = 28422,
+            pos = vec3(0.0, 0.0, 0.0),
+            rot = vec3(0.0, 0.0, 0.0)
+        }
+    },
+    Drug = {
+        Dict = 'anim@amb@business@weed@weed_inspecting_lo_med_hi@',
+        Clip = 'weed_stand_checkingleaves_idle_01_inspector',
+        Flag = 49,
+        Prop = false
+    },
+    Target = {
+        Enabled = false,
+        Alcohol = { Dict = 'mp_player_intdrink', Clip = 'loop_bottle', Flag = 49 },
+        Drug = { Dict = 'mp_player_inteat@burger', Clip = 'mp_player_int_eat_burger_fp', Flag = 49 }
     }
 }
 
