@@ -47,18 +47,55 @@ RegisterNetEvent('kipchak_sobriety:consentClose', function()
     lib.closeAlertDialog()
 end)
 
+local function animEntry(source, kind)
+    local entry = source[kind == 'alcohol' and 'Alcohol' or 'Drug']
+    if entry == nil and source == Config.Animation and source.Dict then
+        entry = { Dict = source.Dict, Clip = source.Clip, Flag = 49, Prop = source.Prop }
+    end
+    if type(entry) ~= 'table' or type(entry.Dict) ~= 'string' or entry.Dict == '' or not entry.Clip then return end
+    return entry
+end
+
+local targetAnimToken = 0
+
+RegisterNetEvent('kipchak_sobriety:targetAnim', function(kind, duration)
+    local target = Config.Animation.Target
+    if not Config.Animation.Enabled or type(target) ~= 'table' or not target.Enabled then return end
+    local entry = animEntry(target, kind)
+    if not entry then return end
+    local ped = cache.ped
+    if cache.vehicle or IsEntityDead(ped) then return end
+    targetAnimToken = targetAnimToken + 1
+    local token = targetAnimToken
+    CreateThread(function()
+        if not pcall(lib.requestAnimDict, entry.Dict, 3000) then return end
+        if token ~= targetAnimToken then return RemoveAnimDict(entry.Dict) end
+        TaskPlayAnim(ped, entry.Dict, entry.Clip, 3.0, 3.0, -1, entry.Flag or 49, 0, false, false, false)
+        local stopAt = GetGameTimer() + (tonumber(duration) or 5000)
+        while token == targetAnimToken and GetGameTimer() < stopAt and not cache.vehicle do
+            Wait(100)
+        end
+        StopAnimTask(ped, entry.Dict, entry.Clip, 1.0)
+        RemoveAnimDict(entry.Dict)
+    end)
+end)
+
+RegisterNetEvent('kipchak_sobriety:targetStop', function()
+    targetAnimToken = targetAnimToken + 1
+end)
+
 RegisterNetEvent('kipchak_sobriety:progress', function(token, kind, duration)
     progressToken = token
     CreateThread(function()
-        local anim = Config.Animation
+        local entry = not cache.vehicle and animEntry(Config.Animation, kind) or nil
         local completed = lib.progressBar({
             duration = duration,
             label = L(kind == 'alcohol' and 'progress_alcohol' or 'progress_drug'),
             useWhileDead = false,
             canCancel = true,
             disable = { car = true, combat = true },
-            anim = anim.Emote and anim.Dict and { dict = anim.Dict, clip = anim.Clip, flag = 49 } or nil,
-            prop = anim.Emote and anim.Prop or nil
+            anim = entry and { dict = entry.Dict, clip = entry.Clip, flag = entry.Flag or 49 } or nil,
+            prop = entry and type(entry.Prop) == 'table' and entry.Prop or nil
         })
         if not completed and progressToken == token then
             TriggerServerEvent('kipchak_sobriety:cancel', token)
